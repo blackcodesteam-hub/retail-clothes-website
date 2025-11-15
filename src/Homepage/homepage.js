@@ -30,7 +30,7 @@ const Homepage = () => {
             id: 103,
             name: 'Noise-Cancelling Headphones',
             price: 199.99,
-            image: 'https://images.unsplash.com/photo-1551882547-ff40c63fe5fa?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=60'
+            image: 'https://images.pexels.com/photos/577769/pexels-photo-577769.jpeg'
         }
     ];
 
