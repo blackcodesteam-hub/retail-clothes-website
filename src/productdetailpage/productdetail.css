@@ -1,0 +1,74 @@
+/* General Styling */
+body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+}
+
+/* Header */
+.navbar-brand .fw-bold {
+    color: #212529;
+}
+
+/* Main product image for better framing */
+.main-product-image {
+    background-color: #f8f9fa; /* Light background for the illustration */
+    border-radius: 8px;
+}
+
+/* Size Selector */
+.btn-group .btn-outline-secondary {
+    border-color: #ced4da;
+    color: #495057;
+}
+
+.btn-group .btn-check:checked+.btn-outline-secondary {
+    background-color: #0d6efd;
+    color: white;
+    border-color: #0d6efd;
+    box-shadow: none; /* Override default Bootstrap focus shadow */
+}
+
+/* Color Selector */
+.color-swatch {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  border: 2px solid #ced4da; /* Default border */
+  padding: 3px;
+  margin-right: 10px;
+  background-clip: content-box;
+  background-color: #fff; /* Ensures padding area is not colored */
+  transition: border-color 0.15s ease-in-out;
+}
+
+.color-swatch > div {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  border: 1px solid rgba(0,0,0,0.1); /* Inner subtle border for white */
+}
+
+.color-swatch.btn-check:checked+.btn {
+    border-color: #0d6efd; /* Blue outline for selected color */
+    box-shadow: none;
+}
+
+/* Star Rating */
+.star-rating {
+    font-size: 1.25rem;
+}
+.star-filled {
+    color: #0d6efd; /* Blue stars to match the theme */
+}
+.star-empty {
+    color: #ced4da;
+}
+
+/* Reviews Progress Bar */
+.progress {
+    height: 8px;
+    background-color: #e9ecef;
+}
+
+.progress-bar {
+    background-color: #0d6efd; /* Blue progress bar */
+}

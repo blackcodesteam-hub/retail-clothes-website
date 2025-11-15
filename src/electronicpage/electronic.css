@@ -1,0 +1,229 @@
+/* --- Stylesheet for Electronics Page --- */
+
+/* Basic body and font */
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #f8f9fa;
+  color: #343a40;
+}
+
+/* Navbar specific styles for hero integration */
+.ep-navbar {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 10;
+  background-color: transparent !important;
+}
+
+.ep-navbar .navbar-brand .fw-bold.fs-5 {
+  color: white;
+  margin-left: 0.5rem;
+}
+
+.ep-navbar .navbar-nav .nav-link {
+  color: #f8f9fa !important;
+  margin: 0 0.75rem;
+  transition: color 0.3s ease;
+}
+
+.ep-navbar .navbar-nav .nav-link:hover {
+  color: white !important;
+  text-decoration: underline;
+}
+
+.ep-navbar .navbar-nav .nav-link.active {
+  color: white !important;
+  font-weight: bold;
+}
+
+/* Search input styling for transparent navbar */
+.ep-navbar .input-group .form-control {
+  background-color: rgba(255, 255, 255, 0.15);
+  border-color: rgba(255, 255, 255, 0.25);
+  color: white;
+  padding-left: 1rem;
+}
+
+.ep-navbar .input-group .form-control::placeholder {
+  color: #dee2e6;
+}
+
+.ep-navbar .input-group-text {
+  background-color: rgba(255, 255, 255, 0.15);
+  border-color: rgba(255, 255, 255, 0.25);
+  color: #dee2e6;
+}
+
+/* Hero Section */
+.ep-hero-section {
+  background-size: cover;
+  background-position: center;
+  min-height: 550px;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  color: white;
+  padding: 3rem 1rem;
+}
+
+.ep-hero-section::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5); /* Dark overlay */
+  z-index: 1;
+}
+
+.ep-hero-section .ep-hero-content {
+  position: relative;
+  z-index: 2;
+}
+
+.ep-hero-section .text-uppercase {
+  font-size: 0.9rem;
+  color: #adb5bd;
+  margin-bottom: 0.5rem;
+}
+
+.ep-hero-section h1 {
+  font-size: 3.5rem;
+  font-weight: bold;
+  margin-bottom: 1rem;
+}
+
+.ep-hero-section .lead {
+  font-size: 1.25rem;
+  max-width: 700px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* Product list and filtering */
+.ep-product-list-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 2rem;
+}
+
+.ep-product-list-header h2 {
+  font-size: 1.75rem;
+  font-weight: 600;
+  color: #343a40;
+}
+
+.ep-filter-dropdown .dropdown-toggle {
+  background-color: white;
+  border-color: #ced4da;
+  color: #495057;
+  padding: 0.5rem 1rem;
+  border-radius: 0.25rem;
+}
+
+.ep-filter-dropdown .dropdown-toggle::after {
+  margin-left: 0.75em;
+}
+
+/* Product Card */
+.ep-product-card {
+  border: none;
+  border-radius: 0.5rem;
+  transition: transform 0.2s ease-in-out;
+}
+
+.ep-product-card:hover {
+  transform: translateY(-5px);
+}
+
+.ep-product-card .card-img-top {
+  border-radius: 0.5rem 0.5rem 0 0;
+  height: 300px; /* Adjusted height for electronics */
+  object-fit: cover;
+  width: 100%;
+}
+
+.ep-product-card .card-body {
+  padding: 1rem;
+}
+
+.ep-product-card .card-title {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #343a40;
+  margin-bottom: 0.25rem;
+}
+
+.ep-product-card .card-text {
+  font-size: 1rem;
+  color: #6c757d;
+  font-weight: 500;
+}
+
+/* Pagination */
+.ep-pagination {
+  display: flex;
+  justify-content: center;
+  margin-top: 3rem;
+  margin-bottom: 5rem;
+}
+
+.ep-pagination .page-item .page-link {
+  color: #6c757d;
+  border: 1px solid #dee2e6;
+  background-color: #fff;
+  margin: 0 0.25rem;
+  border-radius: 0.25rem;
+}
+
+.ep-pagination .page-item.active .page-link {
+  background-color: #007bff;
+  border-color: #007bff;
+  color: white;
+  font-weight: bold;
+}
+
+.ep-pagination .page-item .page-link:hover {
+  background-color: #e9ecef;
+}
+
+.ep-pagination .page-item.disabled .page-link {
+  color: #6c757d;
+  pointer-events: none;
+  background-color: #e9ecef;
+  border-color: #dee2e6;
+}
+
+/* Responsive adjustments */
+@media (max-width: 992px) {
+  .ep-navbar .navbar-collapse {
+    text-align: center;
+    background-color: rgba(33, 37, 41, 0.9);
+    border-radius: 0.5rem;
+    padding: 1rem;
+    margin-top: 0.5rem;
+  }
+  .ep-product-list-header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .ep-product-list-header h2 {
+    margin-bottom: 1rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .ep-hero-section h1 {
+    font-size: 2.5rem;
+  }
+  .ep-hero-section .lead {
+    font-size: 1rem;
+  }
+}

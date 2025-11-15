@@ -1,0 +1,393 @@
+body {
+    margin: 0;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+    background-color: #f8f9fa;
+    color: #333;
+}
+
+/* --- Hero Section & Header (Final attempt: Absolute Navbar with Spacer) --- */
+.hero-section {
+    background-size: cover;
+    background-position: center;
+    min-height: 550px;
+    position: relative;
+    /* Use flex to align the spacer and the content container vertically */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color: white;
+}
+
+.hero-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); /* Dark overlay */
+    z-index: 1;
+}
+
+/* Spacer to push content down - crucial when using position: absolute on navbar */
+.hp-navbar-spacer {
+    height: 70px; /* Adjust this height based on the Navbar's actual height */
+    z-index: 2; /* Ensure spacer is above background, below navbar */
+}
+
+.hp-hero-content {
+    position: relative;
+    z-index: 2;
+    width: 100%; /* Ensure it spans the container */
+    padding: 0 1rem;
+    flex-grow: 1; /* Allow content to take up remaining space, helping with centering */
+    display: flex; /* Use flex to center the content vertically after spacer */
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding-bottom: 3rem; /* Add some bottom padding */
+}
+
+.hp-hero-content h1 {
+    font-size: 3.5rem;
+    font-weight: bold;
+    margin-bottom: 1rem;
+}
+
+.hp-hero-content .lead {
+    font-size: 1.25rem;
+    max-width: 700px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* Homepage navbar styles (COPIED AND ADAPTED from electronic.css - ABSOLUTE position) */
+.hp-navbar {
+    position: absolute; /* Reverted to absolute */
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000; /* Increased z-index to be on top of everything */
+    background-color: transparent !important;
+}
+
+.hp-navbar .navbar-brand .fw-bold.fs-5 {
+    color: white;
+    margin-left: 0.5rem; 
+}
+
+.hp-navbar .navbar-nav .nav-link {
+    color: #f8f9fa !important;
+    margin: 0 0.75rem;
+    transition: color 0.3s ease;
+}
+
+.hp-navbar .navbar-nav .nav-link:hover {
+    color: white !important;
+    text-decoration: underline;
+}
+
+.hp-navbar .navbar-nav .nav-link.active {
+    color: white !important;
+    font-weight: bold;
+}
+
+/* Search input styling for transparent navbar */
+.hp-navbar .input-group .form-control {
+    background-color: rgba(255, 255, 255, 0.15);
+    border-color: rgba(255, 255, 255, 0.25);
+    color: white;
+    padding-left: 1rem;
+}
+
+.hp-navbar .input-group .form-control::placeholder {
+    color: #dee2e6;
+}
+
+.hp-navbar .input-group-text {
+    background-color: rgba(255, 255, 255, 0.15);
+    border-color: rgba(255, 255, 255, 0.25);
+    color: #dee2e6;
+}
+
+
+/* Shop Now Button (from original homepage.css) */
+.shop-now-button {
+    background-color: #0d6efd;
+    color: white;
+    border: none;
+    padding: 15px 30px;
+    font-size: 1rem;
+    font-weight: bold;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.2s;
+    margin-top: 20px;
+}
+
+.shop-now-button:hover {
+    background-color: #0b5ed7;
+}
+
+/* --- Section Layouts --- */
+.product-section,
+.category-section,
+.brand-section {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 30px;
+    padding: 60px 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.section-title {
+    text-align: center;
+    font-size: 2.2rem;
+    font-weight: 600;
+    margin-top: 60px;
+    margin-bottom: 30px;
+}
+
+/* --- Card Styles --- */
+.product-card, .category-card {
+    background-color: white;
+    border-radius: 8px;
+    overflow: hidden;
+    text-align: center;
+    flex-basis: 280px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    cursor : pointer;
+    transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+}
+
+.product-card:hover, .category-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
+}
+
+.product-card img, .category-card img {
+    width: 100%;
+    height: 300px; /* Adjusted for general product images */
+    object-fit: cover;
+    display: block;
+}
+
+.product-card p, .category-card p {
+    padding: 15px;
+    font-size: 1rem;
+    font-weight: 500;
+    margin: 0;
+    color: #333;
+}
+
+.product-card .product-price {
+    font-size: 1.1rem;
+    font-weight: bold;
+    color: #0d6efd;
+    padding-bottom: 15px;
+    display: block;
+}
+.product-section a , .category-section a {
+    text-decoration: none;
+    color: inherit;
+}
+
+/* ensure Add to Cart button sits above the card bottom */
+.product-card .add-to-cart-button,
+.product-card .btn.add-to-cart-button {
+    display: inline-block;
+    margin-bottom: 12px;
+}
+
+/* --- Promo Section --- */
+.promo-section {
+    text-align: center;
+    padding: 80px 20px;
+    background-color: #e9ecef;
+    margin-top: 60px;
+}
+
+.promo-section h1 {
+    font-size: 2.5rem;
+    font-weight: bold;
+    margin-bottom: 15px;
+    color: #212529;
+}
+
+.promo-section p {
+    font-size: 1.1rem;
+    color: #6c757d;
+    max-width: 500px;
+    margin: 0 auto 25px auto;
+}
+
+.promo-section button {
+    background-color: #0d6efd;
+    color: white;
+    border: none;
+    padding: 15px 30px;
+    font-size: 1rem;
+    font-weight: bold;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+.promo-section button:hover {
+    background-color: #0b5ed7;
+}
+
+/* --- Brand Section --- */
+.brand-card {
+    background-color: white;
+    border-radius: 8px;
+    flex-basis: 200px;
+    padding: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+.brand-card img {
+    max-width: 100%;
+    max-height: 50px; /* Control logo height */
+    height: auto;
+    filter: grayscale(100%);
+    opacity: 0.7;
+    transition: filter 0.2s, opacity 0.2s;
+}
+
+.brand-card:hover img {
+    filter: grayscale(0%);
+    opacity: 1;
+}
+
+/* Footer specific styles */
+.footer-section {
+    background-color: #f2f2f2;
+    color: #666;
+    padding: 20px 0;
+    border-top: 1px solid #e0e0e0;
+    font-size: 0.9rem;
+}
+
+.footer-section .container {
+    max-width: 1200px;
+}
+
+.copyright-text {
+    color: #666;
+    font-size: 0.9rem;
+}
+
+.footer-nav .nav-link {
+    color: #666;
+    padding: 0 10px;
+    font-size: 0.9rem;
+    transition: color 0.2s ease-in-out;
+}
+
+.footer-nav .nav-link:hover {
+    color: #333;
+}
+
+.social-icons a {
+    color: #666;
+    font-size: 1.2rem;
+    margin-left: 15px;
+    transition: color 0.2s ease-in-out;
+}
+
+.social-icons a:hover {
+    color: #333;
+}
+
+/* Media Queries for Responsiveness */
+@media (max-width: 992px) {
+    /* mobile: make collapsed menu readable over hero (from electronic.css media query) */
+    .hp-navbar .navbar-collapse {
+        text-align: center;
+        background-color: rgba(33, 37, 41, 0.9);
+        border-radius: 0.5rem;
+        padding: 1rem;
+        margin-top: 0.5rem;
+    }
+    
+    .hp-navbar-spacer {
+        height: 140px; /* Bigger spacer for mobile collapsed navbar */
+    }
+    
+    .hp-hero-content {
+        /* Remove content top margin when using spacer */
+        margin-top: 0; 
+    }
+    
+    /* Hero section font size adjustment (from electronic.css media query) */
+    .hp-hero-content h1 {
+        font-size: 2.5rem;
+    }
+    
+    .section-title {
+        font-size: 1.8rem;
+    }
+
+    .promo-section h1 {
+        font-size: 2rem;
+    }
+
+    .footer-section .row {
+        flex-direction: column;
+    }
+
+    .footer-section .text-md-start,
+    .footer-section .text-md-end {
+        text-align: center !important;
+    }
+
+    .footer-section .col-md-4 {
+        margin-bottom: 10px;
+    }
+
+    .footer-section .footer-nav {
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    .footer-section .footer-nav .nav-link {
+        padding: 5px 10px;
+    }
+
+    .footer-section .social-icons {
+        margin-top: 10px;
+    }
+    .footer-section .social-icons a {
+        margin: 0 10px;
+    }
+}
+
+@media (max-width: 768px) {
+    /* Hero section font size adjustment (from electronic.css media query) */
+    .hero-section {
+        min-height: 400px; /* Adjust min-height for smaller screens */
+        /* padding: 2rem 1rem; */
+    }
+    
+    .hp-hero-content h1 {
+        font-size: 2rem;
+    }
+    .hp-hero-content .lead {
+        font-size: 1rem;
+    }
+    
+    .footer-section .nav {
+        flex-direction: column;
+    }
+    .footer-section .nav-link {
+        padding: 5px 0;
+    }
+}
